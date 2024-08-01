@@ -1,0 +1,24 @@
+
+public class Product {
+	
+	String name;
+	int price;
+	
+	int eachPrice = 0;
+	static int totalPrice = 0;
+	
+	Product(String name, int price) {
+		this.name = name;
+		this.price = price;
+	}
+	
+	void setName(String name) {
+		this.name = name;
+	}
+	
+	String getName() {
+		return name;
+	}
+	
+
+}

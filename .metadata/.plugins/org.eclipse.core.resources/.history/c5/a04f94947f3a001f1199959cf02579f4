@@ -1,0 +1,47 @@
+package com.lx.house;
+
+import java.util.ArrayList;
+
+import com.lx.animal.Dog;
+
+
+
+public class House {
+
+	String name;
+	
+	
+	//* 생성자 함수 = 초기화 값 세팅
+	//public House() {
+		//name = ""; 
+		
+	
+	//run이라는 함수 만들기
+	public void run (ArrayList<Dog> dogs) {
+		if(dogs.size()==0) {
+			System.out.println("개가 없습니다.");
+		}
+		else {
+			for(int i = 0; i < dogs.size(); i++) {
+				System.out.println(dogs.get(i).getName());
+			}
+		}
+	}
+	
+	ArrayList<Dog> dogs = new ArrayList<Dog>();
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setdogs (Dog dogs) {
+		this.dogs.add(dogs);
+	}
+	public ArrayList<Dog> getdogs(){
+		return dogs;
+	}
+}

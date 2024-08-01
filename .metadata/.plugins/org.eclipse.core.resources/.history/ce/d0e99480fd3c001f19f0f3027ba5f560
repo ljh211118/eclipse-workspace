@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Store {
+	
+	String name;
+	ArrayList<Product> products = new ArrayList<Product>();
+	
+	Store() {
+		
+	}
+	
+	Store(String name) {
+		this.name = name;
+	}
+	
+	
+	void setProducts(Product product) {
+		this.products.add(product);
+	}
+	
+	ArrayList<Product> getProducts() {
+		return products;
+	}
+	
+	void pay(Customer customer, Product product) {
+		
+		customer.customerProducts.add(product);
+		
+		product.eachPrice += product.price;
+		customer.eachPrice += product.price;
+		Product.totalPrice += product.price;
+	}
+	
+	// 매장에서 매일매일 팔린 물건들과 팔린 총 금액을 각각 관리할 수 있도록함
+
+
+}

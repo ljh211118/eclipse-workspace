@@ -1,0 +1,2 @@
+iphone16:2000000:apple
+GAL22:1900000:samsung

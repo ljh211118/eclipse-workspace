@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Store {
+	
+	String name;
+	ArrayList<Product> products = new ArrayList<Product>();
+	
+	Store() {
+		
+	}
+	
+	Store(String name) {
+		this.name = name;
+	}
+	
+	
+	void setProducts(Product product) {
+		this.products.add(product);
+	}
+	
+	ArrayList<Product> getProducts() {
+		return products;
+	}
+	
+	void pay(Customer customer, Product product, String date, HashMap<String, ArrayList<Product>> dayToSoldProductList, HashMap<String, Integer> dayToTotal) {
+        
+		customer.customerProducts.add(product);
+		
+		product.eachPrice += product.price;
+		customer.eachPrice += product.price;
+		Product.totalPrice += product.price;
+		
+		/* // 날짜별로 판매된 상품 목록 업데이트
+		// 1. "2024-07-08" 키가 존재하지 않으면 새 ArrayList<Product>를 추가
+		dayToSoldProductList.putIfAbsent(date, new ArrayList<>());
+		// 2. 키가 이미 존재하면 기존 값을 사용
+		dayToSoldProductList.get(date).add(product);
+        
+        // 날짜별로 총 금액 업데이트
+        dayToTotal.putIfAbsent(date, 0);
+        dayToTotal.put(date, dayToTotal.get(date) + product.price);
+        */
+		
+
+        // 날짜별로 판매된 상품 목록 업데이트
+        ArrayList<Product> soldProducts = dayToSoldProductList.get(date);
+        if (soldProducts == null) {
+            soldProducts = new ArrayList<>();
+            dayToSoldProductList.put(date, soldProducts);
+        }
+        soldProducts.add(product);
+
+        // 날짜별로 총 금액 업데이트
+        Integer total = dayToTotal.get(date);
+        if (total == null) {
+            total = 0;
+        }
+        dayToTotal.put(date, total + product.price);
+		
+	}
+}

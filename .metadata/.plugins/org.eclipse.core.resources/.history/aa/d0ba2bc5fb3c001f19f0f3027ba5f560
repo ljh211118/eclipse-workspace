@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+
+public class Customer {
+	
+	String name; 
+	int age;
+	String number;
+	
+	ArrayList<Product> customerProducts = new ArrayList<Product>();
+	
+	int eachPrice = 0;
+	
+	Customer(String name, int age, String number) {
+		this.name = name;
+		this.age = age;
+		this.number = number;
+	}
+	
+	
+	void setName(String name) {
+		this.name = name;
+	}
+	
+	String getName() {
+		return name;
+	}
+
+
+	public void setProducts(Product peach) {
+		// TODO Auto-generated method stub
+		
+	}
+}
